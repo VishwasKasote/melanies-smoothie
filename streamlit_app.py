@@ -28,8 +28,8 @@ ingirdent_list=st.multiselect('Choose upto 5 ingredents', name_list, max_selecti
 
 ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
-pd_df=my_dataframe.to_pandas()
-st.dataframe(pd_df)
+#pd_df=my_dataframe.to_pandas()
+#st.dataframe(pd_df)
 
 
 if ingirdent_list:
