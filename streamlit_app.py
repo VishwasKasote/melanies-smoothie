@@ -18,12 +18,6 @@ st.write(
   """
 )
 
-#option = st.selectbox(
- #   "How would you like to be contacted?",
- #   ('Banana', 'Strwaberry', 'Peaches'),
-#)
-
-
 cxn=st.connection("snowflake")
 session = cxn.session()
 #my_dataframe = session.table("smoothies.public.fruit_options")
@@ -31,7 +25,7 @@ session = cxn.session()
 
 name_on_order=st.text_input("Name on Smoothie")
 
-ingirdent_list=st.multiselect('Choose upto 5 ingredents', my_dataframe, max_selections=5)
+ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
 if ingirdent_list:
     #st.text(ingirdent_list)
 
