@@ -5,7 +5,7 @@ from snowflake.snowpark.functions import col
 import requests
 
 
-smoothiefroot_response = requests.get("https://smoothiefroot.com/api/fruit/orange")
+smoothiefroot_response = requests.get("https://smoothiefroot.com/api/fruit/all")
 st.text(smoothiefroot_response)
 
 
