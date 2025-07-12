@@ -22,7 +22,7 @@ covert_tojson=smoothiefroot_response.json()
 name_list = [item["name"] for item in covert_tojson if "name" in item]
 name_on_order=st.text_input("Name on Smoothie")
 
-ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
+ingirdent_list=st.multiselect('Choose upto 5 ingredents', name_list, max_selections=5)
 ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 if ingirdent_list:
