@@ -14,17 +14,18 @@ st.write(
   **Smoothie:**:cup_with_straw:
   """
 )
-
 cxn=st.connection("snowflake")
 session = cxn.session()
+
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+st.dataframe(data=my_dataframe, use_container_width=True)
+
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
 covert_tojson=smoothiefroot_response.json()
 name_list = [item["name"] for item in covert_tojson if "name" in item]
 name_on_order=st.text_input("Name on Smoothie")
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', name_list, max_selections=5)
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
 #ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 pd_df=my_dataframe.to_pandas()
@@ -46,7 +47,7 @@ if ingirdent_list:
       
       my_insert_stmt = """ insert into smoothies.public.orders(Ingredients,NAME_ON_ORDER)
                 values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
-      #st.write(my_insert_stmt)
+      st.write(my_insert_stmt)
     time_to_insert=st.button('Submit Order')
     if time_to_insert:
       session.sql(my_insert_stmt).collect()
