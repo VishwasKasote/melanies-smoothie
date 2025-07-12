@@ -5,9 +5,6 @@ from snowflake.snowpark.functions import col
 import requests
 
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response.json())
-sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 
 
 # Write directly to the app
@@ -23,6 +20,9 @@ session = cxn.session()
 #my_dataframe = session.table("smoothies.public.fruit_options")
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
+sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 name_on_order=st.text_input("Name on Smoothie")
 
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
