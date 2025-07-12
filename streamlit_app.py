@@ -7,7 +7,7 @@ import requests
 
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 st.text(smoothiefroot_response.json())
-#sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
+sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 
 
 # Write directly to the app
@@ -27,7 +27,7 @@ st.write(
 cxn=st.connection("snowflake")
 session = cxn.session()
 my_dataframe = session.table("smoothies.public.fruit_options")
-#st.dataframe(data=my_dataframe, use_container_width=True)
+st.dataframe(data=my_dataframe, use_container_width=True)
 
 name_on_order=st.text_input("Name on Smoothie")
 
