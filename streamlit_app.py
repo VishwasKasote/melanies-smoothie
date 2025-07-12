@@ -6,7 +6,7 @@ import requests
 
 
 smoothiefroot_response = requests.get("https://smoothiefroot.com/api/fruit/orange")
-st.text(smoothiefroot_response.json())
+st.text(smoothiefroot_response)
 
 
 # Write directly to the app
