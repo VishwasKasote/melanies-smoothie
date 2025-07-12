@@ -34,7 +34,7 @@ st.dataframe(pd_df)
 
 if ingirdent_list:
     st.text(ingirdent_list)
-    st.stop()
+    
     ingredients_string=''
    
     for fruit_chosen in  ingirdent_list: 
