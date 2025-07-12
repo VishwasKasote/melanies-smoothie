@@ -18,8 +18,8 @@ st.write(
 cxn=st.connection("snowflake")
 session = cxn.session()
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
-#covert_tojson=smoothiefroot_response.json()
-#name_list = [item["name"] for item in smoothiefroot_response if "name" in item]
+covert_tojson=smoothiefroot_response.json()
+name_list = [item["name"] for item in covert_tojson if "name" in item]
 name_on_order=st.text_input("Name on Smoothie")
 
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
