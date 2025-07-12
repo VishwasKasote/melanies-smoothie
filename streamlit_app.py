@@ -22,7 +22,7 @@ session = cxn.session()
 
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 st.text(smoothiefroot_response.json())
-sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
+
 name_on_order=st.text_input("Name on Smoothie")
 
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
@@ -40,7 +40,7 @@ if ingirdent_list:
     st.write(my_insert_stmt)
     
     time_to_insert=st.button('Submit Order')
-    
+    sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 
     #st.write(my_insert_stmt)
     if time_to_insert:
