@@ -37,7 +37,8 @@ if ingirdent_list:
     ingredients_string=''
     for fruit_chosen in  ingirdent_list: 
       ingredients_string+= fruit_chosen+' '
-     
+      st.write('FRUIT_NAME'+FRUIT_NAME+','+fruit_chosen)
+      st.stop()
       search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
       
       st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
