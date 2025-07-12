@@ -28,7 +28,7 @@ st.dataframe(data=my_dataframe, use_container_width=True)
 #ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 pd_df=my_dataframe.to_pandas()
-st,dataframe(pd_df)
+st.dataframe(pd_df)
 
 
 if ingirdent_list:
