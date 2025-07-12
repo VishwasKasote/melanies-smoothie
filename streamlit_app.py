@@ -30,10 +30,10 @@ if ingirdent_list:
     ingredients_string=''
 
     for fruit_chosen in  ingirdent_list: 
-        ingredients_string+= fruit_chosen
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
-        ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-    #st.write("items in string"+ingredients_string+ ' ')
+      ingredients_string+= fruit_chosen
+      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
+      ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+    
 
     my_insert_stmt = """ insert into smoothies.public.orders(Ingredients,NAME_ON_ORDER)
             values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
