@@ -18,10 +18,11 @@ st.write(
 cxn=st.connection("snowflake")
 session = cxn.session()
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
-
+covert_tojson=smoothiefroot_response.json()
+names=items['name'] from ites in covert_tojson if "name" in item
 name_on_order=st.text_input("Name on Smoothie")
 
-ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response['name'], max_selections=5)
+ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
 ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 if ingirdent_list:
