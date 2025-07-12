@@ -26,8 +26,8 @@ st.write(
 
 cxn=st.connection("snowflake")
 session = cxn.session()
-my_dataframe = session.table("smoothies.public.fruit_options")
-st.dataframe(data=my_dataframe, use_container_width=True)
+#my_dataframe = session.table("smoothies.public.fruit_options")
+#st.dataframe(data=my_dataframe, use_container_width=True)
 
 name_on_order=st.text_input("Name on Smoothie")
 
