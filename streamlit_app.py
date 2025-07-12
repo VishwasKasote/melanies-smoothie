@@ -18,7 +18,7 @@ st.write(
 cxn=st.connection("snowflake")
 session = cxn.session()
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/all")
-covert_tojson=smoothiefroot_response.json()
+#covert_tojson=smoothiefroot_response.json()
 names=[items["name"] for item in smoothiefroot_response if "name" in item]
 name_on_order=st.text_input("Name on Smoothie")
 
