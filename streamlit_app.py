@@ -3,7 +3,7 @@ import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 import requests
-
+import pandas as pd
 
 
 
@@ -23,8 +23,13 @@ name_list = [item["name"] for item in covert_tojson if "name" in item]
 name_on_order=st.text_input("Name on Smoothie")
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', name_list, max_selections=5)
 
-my_dataframe = session.table("smoothies.public.fruit_options")
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+st.dataframe(data=my_dataframe, use_container_width=True)
 #ssf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
+pd_df=my_dataframe.to_pandas()
+st,dataframe(pd_df)
+
 
 if ingirdent_list:
     #st.text(ingirdent_list)
