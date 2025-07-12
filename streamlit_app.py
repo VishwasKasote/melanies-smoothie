@@ -26,6 +26,7 @@ smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/al
 name_on_order=st.text_input("Name on Smoothie")
 
 ingirdent_list=st.multiselect('Choose upto 5 ingredents', smoothiefroot_response, max_selections=5)
+sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 if ingirdent_list:
     #st.text(ingirdent_list)
 
