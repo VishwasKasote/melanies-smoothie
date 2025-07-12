@@ -35,7 +35,7 @@ st.dataframe(pd_df)
 if ingirdent_list:
     #st.text(ingirdent_list)
     ingredients_string=''
-  st.write('FRUIT_NAME'+FRUIT_NAME+','+fruit_chosen)
+    st.write('FRUIT_NAME'+FRUIT_NAME+','+fruit_chosen)
       st.stop()
     for fruit_chosen in  ingirdent_list: 
       ingredients_string+= fruit_chosen+' '
